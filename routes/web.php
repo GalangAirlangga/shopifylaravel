@@ -19,3 +19,9 @@ Route::get('/', function () {
 Route::get('/home',function (){
     return view('vendor.shopify-app.home.index');
 });
+Route::get('/shopify/product', function () {
+    $shop = Auth::user();
+    $request = $shop->api()->rest('GET', '/admin/shop.json');
+// $request = $shop->api()->graph('{ shop { name } }');
+    echo $request['body']['shop']['name'];
+});
