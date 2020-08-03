@@ -21,7 +21,7 @@ Route::get('/home',function (){
 });
 Route::get('/shopify/product', function () {
     $shop = Auth::user();
-    $request = $shop->api()->rest('GET', '/admin/shop.json');
+    $request = $shop->api()->rest('GET', '/admin/api/2020-07/shop.json');
 // $request = $shop->api()->graph('{ shop { name } }');
-    echo $request['body']['shop']['name'];
+    echo $request['body'];
 });
